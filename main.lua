@@ -1,5 +1,5 @@
 function love.load()
-    input = (require("input")).Init {
+    input = (require("Inp")).Init {
         inputs = {
             test = {"a", "key:b", "c", "mouse:1", "joy:a"}
         },
