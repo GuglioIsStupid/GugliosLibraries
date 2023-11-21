@@ -6,4 +6,4 @@ This repository contains the libraries I use in my projects.
 `Class.lua` - A class system for Lua.
 `Env.lua` - A .env parser for Love2d.
 `Ini.lua` - An INI parser for Love2d.
-`Inp.lua` - An input system for Love2d.
+`Input.lua` - An input system for Love2d.
