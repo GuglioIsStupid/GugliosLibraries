@@ -1,5 +1,5 @@
 function love.load()
-    input = (require("Inp")).Init {
+    input = (require("Input")).Init {
         inputs = {
             test = {"a", "key:b", "c", "mouse:1", "joy:a"}
         },
@@ -13,5 +13,5 @@ end
 
 function love.draw()
     love.graphics.print("Press a, b, or c", 10, 10)
-    love.graphics.print(tostring(input:isPressed("test")) .. " " .. tostring(input:isDown("test")), 10, 30)
+    love.graphics.print(tostring(input:isPressed("test")) .. " " .. tostring(input:isDown("test")) .. " " .. tostring(input:isReleased("test")), 10, 30)
 end
