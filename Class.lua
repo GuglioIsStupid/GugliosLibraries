@@ -1,6 +1,6 @@
 local class = {
   _NAME = "Class",
-  _VERSION = "1.0.0",
+  _VERSION = "1.1.0",
   _DESCRIPTION = "A simple class implementation",
   _CREATOR = "GuglioIsStupid",
   _LICENSE = [[
