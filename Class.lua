@@ -9,10 +9,6 @@ local class = {
 }
 
 class.__index = class
-class.__ID = "Class: 0x0000000000000000"
-
--- Recreate smth like "Table: 0x0000000000000000"
-local idChars = "0123456789abcdef"
 
 --- Creates a new instance of the class
 ---@param ... any
@@ -21,7 +17,7 @@ function class:new(...) end
 
 --- Creates a new class that extends the current class
 ---@return table
-function class:extend()
+function class:extend(name)
     local cls = {}
     for k, v in pairs(self) do
         if k:find("__") == 1 then
@@ -30,10 +26,8 @@ function class:extend()
     end
     cls.__index = cls
     cls.super = self
-    cls.__ID = "Class: 0x"
-    for _ = 1, 4 do
-        cls.__ID = cls.__ID .. idChars:sub(love.math.random(1, #idChars), love.math.random(1, #idChars))
-    end
+
+    cls._NAME = name or "Class"
     setmetatable(cls, self)
     return cls
 end
@@ -67,7 +61,7 @@ end
 --- Returns the class ID
 ---@return string
 function class:__tostring()
-    return self.__ID
+    return self.__NAME
 end
 
 --- Creates a new instance of the class
@@ -76,10 +70,7 @@ end
 function class:__call(...)
     local inst = setmetatable({}, self)
     inst:new(...)
-    inst.__ID = "Class: 0x"
-    for _ = 1, 4 do
-        inst.__ID = inst.__ID .. idChars:sub(love.math.random(1, #idChars), love.math.random(1, #idChars))
-    end
+
     return inst
 end
 
